@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body><p class="post-meta" th:text="${'Email: '+team.getEmail() + '  TeamName '+team.getTeamname()+ ' Confirm '+team.getConfirm()}">Autor i data
+</p>
+
+<div class="col-lg-8 col-md-10 mx-auto" th:each="post : ${posts}">
+    <div class="post-preview">
+        <a th:href="@{blog/post/} + ${post.getId_p()}">
+            <h2 class="post-title" th:text="${post.getTitle()}">
+                ..
+            </h2>
+        </a>
+        <p class="post-meta" th:text="${'Author: '+post.getAuthor() + ' '+post.getDate_added()}">Autor i data
+        </p>
+        <div class="clearfix">
+            <a class="btn btn-primary float-right" href="#" th:if="${isAdmin}" th:href="@{blog/delete/} +${post.getId_p()}">usun</a>
+        </div>
+        <div class="clearfix">
+            <a class="btn btn-primary float-right" href="#" th:if="${isAdmin}" th:href="@{blog/modify/} +${post.getId_p()}">Zmien</a>
+        </div>
+    </div>
+    <hr>
+</div>
+</body>
+</html>
