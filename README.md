@@ -1,7 +1,10 @@
-# HackathonApp---Spring-Project
+# HackathonApp [Spring-Project]
+
+technologies:
+Spring 4.0, Spring Webflow, Spring Security,JPA, CSS, JavaScript. 
 
 functionalities:
-- two separate category registration of member and team
-- user/team can manage user/team account
-- admin board
-- contact form connected with database 
+- two separate category registration of member and team.
+- users can manage their own account.
+- admin board.
+- contact form connect with MySQL database.
