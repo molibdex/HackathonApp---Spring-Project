@@ -21,6 +21,7 @@ import java.util.List;
 public class hackControler {
 
     HackService hackService;
+
     @Autowired
     public hackControler(HackService hackService) {
         this.hackService = hackService;
@@ -30,6 +31,7 @@ public class hackControler {
     public String index(Model model, Authentication authentication) {
         return "index";
     }
+
     @GetMapping("hack/profilT")
     public String profil(Model model, Authentication authentication) {
         model.addAttribute("email", hackService.getEmail(authentication));
@@ -43,15 +45,15 @@ public class hackControler {
             model.addAttribute("email", hackService.getEmail(authentication));
             model.addAttribute("teams", teams);
 
-
             return "profilAdmin";
         } else {
-       Team team= hackService.DateUserByEmail(authentication);
+            Team team = hackService.DateUserByEmail(authentication);
             System.out.println(team.getTeamname());
-            model.addAttribute("team",team);
+            model.addAttribute("team", team);
             return "profilTeam";
         }
     }
+
     @GetMapping("/hack/registration")
     public String registration(Model model, Authentication authentication) {
         Team team = new Team();
@@ -73,18 +75,19 @@ public class hackControler {
         System.out.println("logowanie");
         return "loginForm";
     }
+
     @PostMapping("/hack/update")
-    public String updation(@ModelAttribute @Valid Team team, BindingResult bindingResult,Authentication authentication) {
+    public String updation(@ModelAttribute @Valid Team team, BindingResult bindingResult, Authentication authentication) {
         if (bindingResult.hasErrors()) {
             return "profilTeam";
         }
-        hackService.updateTeam(team,authentication);
+        hackService.updateTeam(team, authentication);
         return "redirect:/hack";
     }
 
     @GetMapping("/hack/contact")
     public String contact(Model model,
-                          Authentication authentication){
+                          Authentication authentication) {
         model.addAttribute("email", hackService.getEmail(authentication));
         model.addAttribute("contact", new Contact());
         return "contactForm";
@@ -95,7 +98,7 @@ public class hackControler {
                           BindingResult bindingResult,
                           Model model,
                           Authentication authentication) {
-        if(bindingResult.hasErrors()){
+        if (bindingResult.hasErrors()) {
             return "contactForm";
         }
         hackService.saveContact(contact);

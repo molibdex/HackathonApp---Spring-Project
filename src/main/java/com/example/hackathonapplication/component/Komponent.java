@@ -9,8 +9,8 @@ public class Komponent {
 
     public JavaMailSender emailSender;
 
-    public  void SendSimpleMessage(String to, String subject, String message){
-        SimpleMailMessage simpleMailMessage =new SimpleMailMessage();
+    public void SendSimpleMessage(String to, String subject, String message) {
+        SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
         simpleMailMessage.setTo(to);
         simpleMailMessage.setSubject(subject);
         simpleMailMessage.setText(message);

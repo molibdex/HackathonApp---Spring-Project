@@ -22,24 +22,22 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/hack/profilT").hasAnyAuthority("ROLE_ADMIN","ROLE_USER")
+                .antMatchers("/hack/profilT").hasAnyAuthority("ROLE_ADMIN", "ROLE_USER")
                 .anyRequest().permitAll()
                 .and()
                 .csrf().disable()
                 .formLogin()
                 .loginPage("/hack/logowanie")
-                    .usernameParameter("email")
-                    .passwordParameter("password")
-                    .loginProcessingUrl("/login-process")
-                    .defaultSuccessUrl("/hack/profilT")
+                .usernameParameter("email")
+                .passwordParameter("password")
+                .loginProcessingUrl("/login-process")
+                .defaultSuccessUrl("/hack/profilT")
                 .and()
                 .logout()
                 .logoutUrl("/hack/logout")
                 .logoutSuccessUrl("/hack/logout");
-
-
-
     }
+
     // autoryzacja w oparciu o DB
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -48,7 +46,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authoritiesByUsernameQuery("SELECT t.email, t.permission FROM team t WHERE t.email = ?")
                 .dataSource(dataSource)
                 .passwordEncoder(new BCryptPasswordEncoder());
-
     }
 
 }

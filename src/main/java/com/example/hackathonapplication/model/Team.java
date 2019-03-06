@@ -13,23 +13,24 @@ public class Team {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id_t;
     @NotBlank(message = "topole moze byc puste")
-    @Size(min =3, max=255,message ="pole musi zawierac od {min} do {max}")
+    @Size(min = 3, max = 255, message = "pole musi zawierac od {min} do {max}")
     private String teamname;
     @NotBlank(message = "topole moze byc puste")
-    @Size(min =3, max=255, message ="pole musi zawierac od {min} do {max}")
+    @Size(min = 3, max = 255, message = "pole musi zawierac od {min} do {max}")
     private String player1;
     private String player2;
     private String player3;
     private String player4;
-    @Email(message ="niepoprawny adres email" )
+    @Email(message = "niepoprawny adres email")
     private String email;
-     @Size(min=3, max=255, message ="pole musi zawierac od {min} do {max}")
+    @Size(min = 3, max = 255, message = "pole musi zawierac od {min} do {max}")
     private String phone;
-    @Size(min=3, max=255, message ="pole musi zawierac od {min} do {max}")
+    @Size(min = 3, max = 255, message = "pole musi zawierac od {min} do {max}")
     private String password;
-    private String permission="ROLE_USER" ;
-    private Boolean confirm=false;
-    private Boolean active=true;
+    private String permission = "ROLE_USER";
+    private Boolean confirm = false;
+    private Boolean active = true;
+
     public Team() {
     }
 
