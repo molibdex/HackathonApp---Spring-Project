@@ -7,4 +7,4 @@ functionalities:
 - two separate category registration of member and team.
 - users can manage their own account.
 - admin board.
-- contact form connect with MySQL database.
+- contact form connected with MySQL database.
