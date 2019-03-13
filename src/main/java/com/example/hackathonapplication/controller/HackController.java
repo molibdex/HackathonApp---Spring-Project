@@ -18,12 +18,12 @@ import javax.validation.Valid;
 import java.util.List;
 
 @Controller
-public class hackControler {
+public class hackController {
 
     HackService hackService;
 
     @Autowired
-    public hackControler(HackService hackService) {
+    private hackController(HackService hackService) {
         this.hackService = hackService;
     }
 

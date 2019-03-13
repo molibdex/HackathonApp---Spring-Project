@@ -10,8 +10,7 @@ import java.util.List;
 public interface HackRepository extends JpaRepository<Team, Long> {
     Team findFirstByEmail(String email);
 
-    @Override
-    List<Team> findAll();
+
 
     Team findAllByEmail(String email);
 }

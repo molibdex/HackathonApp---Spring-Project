@@ -12,7 +12,7 @@ public class Contact {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id_c;
+    Long idc;
 
     @NotBlank(message = "to pole nie moze byc puste")
     String content;
@@ -32,15 +32,15 @@ public class Contact {
         this.email = email;
     }
 
-    public Long getId_c() {
-        return id_c;
+    public Long getIdc() {
+        return idc;
     }
 
-    public void setId_c(Long id_c) {
-        this.id_c = id_c;
+    public void setIdc(Long idc) {
+        this.idc = idc;
     }
 
-    public String getContent() {
+    private String getContent() {
         return content;
     }
 
@@ -48,7 +48,7 @@ public class Contact {
         this.content = content;
     }
 
-    public String getSignature() {
+    private String getSignature() {
         return signature;
     }
 
@@ -56,7 +56,7 @@ public class Contact {
         this.signature = signature;
     }
 
-    public String getEmail() {
+    private String getEmail() {
         return email;
     }
 

@@ -12,9 +12,9 @@ public class Team {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id_t;
-    @NotBlank(message = "topole moze byc puste")
+    @NotBlank(message = "to pole moze byc puste")
     @Size(min = 3, max = 255, message = "pole musi zawierac od {min} do {max}")
-    private String teamname;
+    private String teamName;
     @NotBlank(message = "topole moze byc puste")
     @Size(min = 3, max = 255, message = "pole musi zawierac od {min} do {max}")
     private String player1;
@@ -65,7 +65,7 @@ public class Team {
         return teamname;
     }
 
-    public void setTeamname(String teamname) {
+    public void setTeamName(String teamname) {
         this.teamname = teamname;
     }
 
