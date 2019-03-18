@@ -11,6 +11,5 @@ public interface HackRepository extends JpaRepository<Team, Long> {
     Team findFirstByEmail(String email);
 
 
-
     Team findAllByEmail(String email);
 }

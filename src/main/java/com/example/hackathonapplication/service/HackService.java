@@ -18,7 +18,8 @@ public class HackService {
     String email;
     HackRepository hackRepository;
     ContactRepository contactRepository;
-@Autowired
+
+    @Autowired
     public HackService(HackRepository hackRepository, ContactRepository contactRepository) {
         this.hackRepository = hackRepository;
         this.contactRepository = contactRepository;
@@ -28,8 +29,7 @@ public class HackService {
         String email;
         if (authentication != null) {
             UserDetails principal = (UserDetails) authentication.getPrincipal();
-            email = principal.getUsername();
-            return email;
+            return principal.getUsername();
         }
         return null;
     }
@@ -42,7 +42,8 @@ public class HackService {
         hackRepository.save(team);
 
     }
-    public  void saveContact(Contact contact){
+
+    public void saveContact(Contact contact) {
         contactRepository.save(contact);
     }
 
@@ -63,22 +64,21 @@ public class HackService {
 
     }
 
-    public Team DateUserByEmail(Authentication authentication) {
+    public Team dateUserByEmail(Authentication authentication) {
         UserDetails principal = (UserDetails) authentication.getPrincipal();
         String email = principal.getUsername();
         Team team = hackRepository.findFirstByEmail(email);
-        System.out.println(team);
         return team;
 
     }
-    public List<Team> getAllPosts(){
+
+    public List<Team> getAllPosts() {
         return hackRepository.findAll();
     }
 
 
-
-    public  void  updateTeam(Team team, Authentication authentication){
-        Team updateTeam= hackRepository.findFirstByEmail(getEmail(authentication));
+    public void updateTeam(Team team, Authentication authentication) {
+        Team updateTeam = hackRepository.findFirstByEmail(getEmail(authentication));
         updateTeam.setPhone(team.getPhone());
         updateTeam.setPlayer1(team.getPlayer1());
         updateTeam.setPlayer2(team.getPlayer2());
